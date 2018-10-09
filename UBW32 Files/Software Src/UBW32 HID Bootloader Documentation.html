@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+    <title>UBW32 HID Bootloader Documentation</title>
+    <meta content="Brian Schmalz" name="author">
+    <meta content="Documentation page for UBW32 Bootloader" name="description">
+  </head>
+  <body>
+    <div style="text-align: center;"><a href="http://www.schmalzhaus.com/"><big><big><span style="font-weight: bold;"><img alt="SchmalzHaus logo" src="UBW32%20HID%20Bootloader%20Documentation_files/SchmalzHaus%2520Logo%2520Small.png" style="border: 0px solid ; width: 143px; height: 59px;" align="left"></span></big></big></a><big><big><span style="font-weight: bold;">Documentation UBW32 HID
+            Bootloader<br>
+            Version 1.5 (11/22/2011)<br>
+          </span></big></big><small><big><big><a href="http://www.schmalzhaus.com/UBW32"><small><small>Back
+                  to
+                  main UBW32 page</small></small></a></big></big></small><br>
+    </div>
+    <br>
+    <span style="font-weight: bold;"></span><span style="font-weight:
+      bold;"></span><span class="postbody"></span><span style="font-weight: bold;">Description:</span><br>
+    The bootloader is a small application that is programmed into your
+    UBW32. There is a special 12K of Flash space reserved in the PIC32
+    for
+    bootloader applications (although our bootloader doesn't actually
+    reside there). The bootloader application runs whenever the
+    UBW32 is reset, and decides if it should go into 'bootload' mode or
+    'run firmware' mode. The HIDBootLoader.exe application allows you to
+    program your UBW32 using just your computer and a USB cable - no
+    hardware programmer is required. This allows you to easily write new
+    firmware or change the stock firmware and add your own commands.<br>
+    <br>
+    <span style="font-weight: bold;">Version Notes:<br>
+    </span>
+    <ul>
+    </ul>
+    <ul>
+      <ul>
+        <ul>
+        </ul>
+      </ul>
+      <li>Version 1.0<br>
+      </li>
+      <ul>
+        <li>Version published by Microchip<br>
+        </li>
+      </ul>
+      <li>Version 1.1 <br>
+      </li>
+      <ul>
+        <li>Converted HID Bootloader project to UBW32 hardware<br>
+        </li>
+        <li>Changed button/LED I/O and added software key (for BL
+          command)</li>
+        <li>Sent to SparkFun for programming onto UBW32s<br>
+        </li>
+      </ul>
+      <li>Version 1.2<br>
+      </li>
+      <ul>
+        <li>Fixed bug in boot_software_key_sec so it works properly all
+          the
+          time</li>
+      </ul>
+      <li>Version 1.3&nbsp; released 9/07/09</li>
+      <ul>
+        <li>Edited project files to use new version of Microchip USB
+          stack,
+          version 2.5b. No new functionality, other than the bug fixes
+          present in
+          the new USB stack.</li>
+        <li>NOTE: This version causes the BL command to break when used
+          with the origional bootloader (shipped on UBW32s as of fall
+          2009). Use
+          latest bootloader or go back to version 1.2 to regain BL
+          command.</li>
+      </ul>
+      <li>Version 1.4 released</li>
+      <ul>
+        <li>Updated main.c code to match the HID bootloader code
+          contained in MAL USB v2.7</li>
+        <li>Switched to XT mode from HS for the crystal drive strength -
+          should help with startup of clock if you're having trouble<br>
+        </li>
+      </ul>
+      <li>Version 1.5 released 11/22/2011</li>
+      <ul>
+        <li>No actual code changes, other than re-structuring how the
+          SoftwareKey variable is handled due to strange behavior in C32
+          v2.01</li>
+        <li>Created a single project folder that holds both MPLAB 8 and
+          MPLAB X (beta 7.12) projects</li>
+        <li>Built with C32 v2.01 and Microchip Application Library USB
+          stack 2.9a (from MAL v2011-07-14)</li>
+        <li>Included the latest PC software - HIDBootloader.exe v2.90a -
+          in the project folder<br>
+        </li>
+      </ul>
+    </ul>
+    <span style="font-weight: bold;">Bootloader Operation:</span><br>
+    You can use your UBW32 in one of two ways - with bootloader or
+    without.
+    This page only describes using it with the bootloader, as that is
+    how
+    it is shipped from SparkFun.<br>
+    <br>
+    When your UBW32 resets, it starts running the bootloader code. This
+    bootloader code checks for any of these three conditions:<br>
+    <ul>
+      <li>PRG button held down</li>
+      <li>Software Key has correct value</li>
+      <li>Rest of FLASH is blank (erased)</li>
+    </ul>
+    If any one of these three things is true, it will turn on all five
+    LEDs
+    and alternate flashing the white and green ones, then jump into
+    bootloader mode. If none of them are true, then it jumps to the
+    beginning of the normal firmware, and starts executing it as if
+    nothing
+    happened.<br>
+    <br>
+    In bootloader mode, the HID Bootloader will activate the USB port on
+    the UBW32 and will enumerate with your computer as a generic HID
+    device. (Which means no drivers will ever be needed on the PC side.)
+    It
+    then waits for commands from the computer. Once you have your UBW32
+    in
+    bootloader mode, you run the HIDBootLoader.exe program on your PC
+    (which is contained in the zip file below), and
+    then you can send a new HEX file down to the UBW32 and have the
+    bootloader program that HEX file into flash. Once you're done
+    programming, you can either reset the UBW32 manually (pressing and
+    releasing the RESET button) or click the Reset Device button in
+    HIDBootloader.exe and the UBW32 will then reboot and run the new
+    firmware you just programmed.<br>
+    <br>
+    <br>
+    <span style="font-weight: bold;">Version 1.5 Files:</span><br>
+    &nbsp;&nbsp;&nbsp; ZIP file of all project and source files
+    necessary
+    to build 1.5 <a href="http://www.schmalzhaus.com/UBW32/FW/HIDBoot.X/HIDBoot.X.zip">here</a>.<br>
+    &nbsp;
+    &nbsp; PIC32MX460 v1.5 HEX
+    <a href="http://www.schmalzhaus.com/UBW32/FW/HIDBoot.X/dist/MX460/production/HIDBoot.X.production.hex">here</a>
+    (for
+    programming a
+    blank UBW32 - old style)<br>
+    &nbsp;&nbsp;&nbsp; PIC32MX795 v1.5 HEX <a href="http://www.schmalzhaus.com/UBW32/FW/HIDBoot.X/dist/MX795/production/HIDBoot.X.production.hex">here
+    </a>(for programming a blank UBW32 - new style)<br>
+    &nbsp;&nbsp;&nbsp; Browse the v1.5 build files <a href="http://www.schmalzhaus.com/UBW32/FW/HIDBoot.X">here</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="http://www.schmalzhaus.com/UBW32/FW/HIDBoot.X/HIDBootLoader.exe">HIDBootloader
+application
+      v2.90a</a> (also contained in the zip file above)<br>
+    <br>
+    <br>
+    <div style="text-align: center;">Questions? E-mail me at <img style="width: 177px; height: 22px;" alt="my e-mail address" src="UBW32%20HID%20Bootloader%20Documentation_files/email.png" align="top"><br>
+    </div>
+    <br>
+    <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" style="border-width: 0pt;" src="UBW32%20HID%20Bootloader%20Documentation_files/88x31.png"></a><br>
+      <span xmlns:dc="http://purl.org/dc/elements/1.1/" property="dc:title">UBW32
+        USB
+        Bit
+        Whacker</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.schmalzhaus.com/UBW32" property="cc:attributionName" rel="cc:attributionURL">Brian
+        Schmalz</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative
+        Commons
+        Attribution
+        3.0
+        United
+        States
+        License</a>.<br>
+      Based on a work at <a xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://www.schmalzhaus.com/UBW32" rel="dc:source">www.schmalzhaus.com/UBW32</a>.<br>
+      Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.schmalzhaus.com/UBW32" rel="cc:morePermissions">www.schmalzhaus.com/UBW32</a>.
+      <br>
+    </div>
+    <script async="" src="UBW32%20HID%20Bootloader%20Documentation_files/analytics.js"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11764490-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+</body></html>

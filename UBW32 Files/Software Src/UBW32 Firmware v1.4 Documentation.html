@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+  <title>UBW32 Firmware v1.4 Documentation</title>
+  <meta content="Brian Schmalz" name="author">
+  <meta content="Documentation page for UBW32 Firmware, version 1.4" name="description">
+</head>
+<body>
+<div style="text-align: center;"><a href="http://www.schmalzhaus.com/"><big><big><span style="font-weight: bold;"><img alt="SchmalzHaus logo" src="UBW32%20Firmware%20v1.4%20Documentation_files/SchmalzHaus%2520Logo%2520Small.png" style="border: 0px solid ; width: 143px; height: 59px;" align="left"></span></big></big></a><big><big><span style="font-weight: bold;">Documentation UBW32 Firmware<br>
+version 1.4
+for UBW32 Boards<br>
+</span></big></big><small><big><big><a href="http://www.schmalzhaus.com/UBW32"><small><small>Back to
+main UBW32 page</small></small></a></big></big></small><br>
+</div>
+<br>
+<span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><span class="postbody"></span><span style="font-weight: bold;">Description:</span><br>
+The firmware (application) that comes with the UBW32 gives the user a
+basic set of input/output commands. For example, the user can set any
+I/O pin to be an input or output, read the inputs, write to the
+outputs, etc. Future versions of the firmware will allow more
+complicated commands (like analog input, timing related commands, PWM,
+SPI, USART, etc.)<br>
+<br>
+<span style="font-weight: bold;">Version Notes:<br>
+</span>
+<ul>
+</ul>
+<ul>
+  <ul>
+    <ul>
+    </ul>
+  </ul>
+  <li>Version 1.0<br>
+  </li>
+  <ul>
+    <li>First publicly released version, and the version that
+SparkFun is shipping on their first run (v2.4) of boards.</li>
+  </ul>
+  <li>Version 1.1 (bug fixes, no new features, released 2/16/09)<br>
+  </li>
+  <ul>
+    <li>Fixed pin number limitation on PD, PI and PO command - allow
+pin values up to 31 now</li>
+    <li>Fixed port offset bug in C command - now able to configure port
+A properly (as well as the others)</li>
+  </ul>
+  <li>Version 1.2 (bug fix, no new features, released 9/07/09)</li>
+  <ul>
+    <li>Fixed problem with location of SoftwareKey variable. Needed a
+"." in section name to correctly allocate at 0xA0000000. BL command now
+works better.</li>
+  </ul>
+  <li>Version 1.3&nbsp; released 8/26/09</li>
+  <ul>
+    <li>Edited project files to use new version of Microchip USB stack,
+version 2.5a. No new functionality, other than the bug fixes present in
+the new USB stack.</li>
+  </ul>
+  <li>Version 1.4&nbsp; released 11/01/10</li>
+  <ul>
+    <li>Added T2 testing command for enhanced testing at SparkFun<br>
+    </li>
+    <ul>
+    </ul>
+  </ul>
+</ul>
+<span style="font-weight: bold;">Commands</span>:<br>
+&nbsp;&nbsp;&nbsp; <span style="font-weight: bold;">Notes for ALL
+commands:</span><br>
+<ul>
+  <li>You end a command by sending a
+&lt;CR&gt; or &lt;LF&gt; or some combination of the two. This is how
+all commands must be terminated to be considered valid.</li>
+  <li>The total number of bytes of each command, counting from the very
+first byte of the command name up to and including the &lt;CR&gt; at
+the end of the command must be 64 bytes or less. If it is longer than
+64 bytes, the command will be ignored, and other bad things may or may
+not happen.<br>
+  </li>
+  <li>You can string together as many commands as you want into one
+string, and then send that string all at once to the UBW32. As long as
+each individual command is not more than 64 bytes, this will work well.
+By putting many commands together (each with their own terminating
+&lt;CR&gt;) and sending it all to the UBW32 at once, you make the most
+efficient use of the USB bandwidth.</li>
+  <li>After successful reception of a command, the UBW32 will always
+send
+back an OK packet, which will consist of "OK&lt;CR&gt;&lt;LF&gt;". For
+just testing things out with a terminal emulator, this is very useful
+because it tells you that the UBW32 understood your command. However,
+it
+does add extra communications overhead that may not be appreciated in a
+higher speed application. You can
+use the CU command to turn off the sending of "OK" packets. Errors will
+still be sent, but not any "OK" packets.</li>
+  <li>All command names ("C", "BC", etc.) are case insensitive.</li>
+  <li>All port names ("A", "B", "C") are case insensitive</li>
+</ul>
+<br>
+&nbsp;&nbsp;&nbsp; <span style="font-weight: bold;">The "C" Command:</span><br>
+<ul>
+  <li>The "C" command stands for 'Configure' and allows you to set
+the state of the port direction registers for ports A, B and C, as well
+as enable analog inputs. This
+allows you to turn each pin into an input or an output on a pin by pin
+basis, or enable one or more of the pins to be analog inputs.<br>
+  </li>
+  <li><span style="font-weight: bold;">Format:</span>
+"C,&lt;DirA&gt;,&lt;DirB&gt;,&lt;DirC&gt;,&lt;DirD&gt;,&lt;DirE&gt;,&lt;DirF&gt;,&lt;DirG&gt;&lt;CR&gt;"
+where
+&lt;DirX&gt;
+is
+a
+value
+between 0 and 65,535 that indicates the
+direction bits for that port. A 1 is an input, a 0 is an
+output.</li>
+  <ul>
+  </ul>
+  <li><span style="font-weight: bold;">Example:</span>
+"C,0,0,0,0,65535,0,0" - This would set all ports as outputs except port
+E which would be all input</li>
+  <li><span style="font-weight: bold;">Return Packet:</span>
+"OK"<br>
+  </li>
+</ul>
+&nbsp;&nbsp;&nbsp; <span style="font-weight: bold;">The "O" Command:</span><br>
+<ul>
+  <li>The "O" command stands for 'Output state' and will take the
+values you give it and write them to the port A, B and C data
+registers. This allows you to set the state of all pins that are
+outputs.</li>
+  <li><span style="font-weight: bold;">Format:</span>
+"O,&lt;PortA&gt;,&lt;PortB&gt;,&lt;PortC&gt;,&lt;PortD&gt;,&lt;PortE&gt;,&lt;PortF&gt;,&lt;PortG&gt;&lt;CR&gt;"
+where
+&lt;PortX&gt;
+is
+a
+value
+between
+0 and 65,535 that indicates the value
+of
+the port pins for that register.</li>
+  <li><span style="font-weight: bold;">Example:</span>
+"O,0,0,131,0,0,0,0"</li>
+  <li><span style="font-weight: bold;">Return Packet:</span>
+"OK"</li>
+</ul>
+&nbsp;&nbsp;&nbsp; <span style="font-weight: bold;">The "I" Command</span><br>
+<ul>
+  <li>The "I" Command stands for 'Input state' and when you send the
+UBW32 an "I" command, it will respond with an "I" packet back that will
+hold the value of each bit in each of the seven ports A, B, C, D, E, F
+and G. It
+reads the state of the pin, no matter if the pin is an input or an
+output.<br>
+  </li>
+  <li><span style="font-weight: bold;">Format: </span>"I&lt;CR&gt;"</li>
+  <li><span style="font-weight: bold;">Example:</span> "I"<br>
+  </li>
+  <li><span style="font-weight: bold;">Return Packet:</span>
+"I,&lt;StatusA&gt;,&lt;StatusB&gt;,&lt;StatusC&gt;,&lt;StatusD&gt;,&lt;StatusE&gt;,&lt;StatusF&gt;,&lt;StatusG&gt;&lt;CR&gt;"
+where
+&lt;StatusX&gt;
+is
+a
+number
+from
+0 to 65,535 that indicates the current
+value of the pins on that port. Note that &lt;StatusX&gt; will always
+be 5 characters long, which means that leading zeros will be added so
+that the return packet is always the same length regardless of the data
+values.</li>
+  <li><span style="font-weight: bold;">Example Return Packet:</span>
+"I,50943,64479,24606,65535,01015,12607,62403"<br>
+  </li>
+</ul>
+&nbsp;&nbsp;&nbsp; <span style="font-weight: bold;">The "V" Command</span><br>
+<ul>
+  <li>The "V" Command stands for 'Version' and when you send the
+UBW an "V" command, it will respond with a text string that looks
+something like this: "UBW32 Version 1.0"<br>
+  </li>
+  <li><span style="font-weight: bold;">Format: </span>"V"</li>
+  <li><span style="font-weight: bold;">Return Packet:</span>
+"UBW32 Version 1.1"<span style="font-weight: bold;"></span></li>
+</ul>
+<span style="font-weight: bold;"></span>
+&nbsp;&nbsp;&nbsp; <span style="font-weight: bold;">The "R" Command</span><br>
+<ul>
+  <li>The "R" Command stands for 'Reset to default state' and when you
+send the
+UBW32 an "R" command it will initialize all pins to digital inputs.<br>
+  </li>
+  <li><span style="font-weight: bold;">Format: </span>"R"</li>
+  <li><span style="font-weight: bold;">Return Packet:</span>
+"OK" </li>
+</ul>
+<ul>
+</ul>
+&nbsp;&nbsp; <span style="font-weight: bold;">The "PD" Command</span><span style="font-weight: bold;"></span>
+<ul>
+  <li>The "PD" command stands for "Pin Direction". It allows you to set
+the direction on just one pin at a time. (Input or Output)<br>
+  </li>
+  <li><span style="font-weight: bold;">Format: </span>"PD,&lt;Port&gt;,&lt;Pin&gt;,&lt;Direction&gt;&lt;CR&gt;"</li>
+  <li><span style="font-weight: bold;">&lt;Port&gt;:</span> This is the
+character A, B, C, D, E, F or G depending upon which port you want to
+change.</li>
+  <li><span style="font-weight: bold;">&lt;Pin&gt;:</span> This is a
+number between and including 0 to 31. It indicates which pin in the
+port
+you want to change the direction on.</li>
+  <li><span style="font-weight: bold;">&lt;Direction&gt;:</span> This
+is either "0" or "1", for Output (0) or Input (1).<br>
+  </li>
+  <li><span style="font-weight: bold;">Example:</span> "PD,B,2,1"&nbsp;
+- This would change Port
+B, pin 2 to an input.<br>
+  </li>
+  <li><span style="font-weight: bold;">Return Packet:</span>
+"OK" </li>
+</ul>
+&nbsp;&nbsp; <span style="font-weight: bold;">The "PI" Command</span><span style="font-weight: bold;"></span><br>
+<ul>
+  <li>The "PI" command stands for "Pin Input". It allows you to read
+the state of just one pin at a time. (High or Low)<br>
+  </li>
+  <li><span style="font-weight: bold;">Format: </span>"PI,&lt;Port&gt;,&lt;Pin&gt;&lt;CR&gt;"</li>
+  <li><span style="font-weight: bold;">&lt;Port&gt;:</span> This is the
+character A, B, C, D, E, F or G depending upon which port you want to
+change.</li>
+  <li><span style="font-weight: bold;">&lt;Pin&gt;:</span> This is a
+number between and including 0 to 31. It
+indicates which pin in the port you want to change the direction on.</li>
+  <li><span style="font-weight: bold;">Example:</span> "PI,C,6" - This
+would read the
+state of Port C pin 6.<br>
+  </li>
+  <li><span style="font-weight: bold;">Return Packet:</span>
+"PI,&lt;Value&gt;"</li>
+  <li><span style="font-weight: bold;">&lt;Value&gt;:</span> This is
+either a High (1) or a Low (0) depending upon the voltage on the pin at
+the time it was read.</li>
+  <li><span style="font-weight: bold;">Example Return Packet:</span>
+"PI,1" (Means that the pin was high.)<br>
+  </li>
+</ul>
+&nbsp;&nbsp; <span style="font-weight: bold;">The "PO" Command</span><span style="font-weight: bold;"></span>
+<ul>
+  <li>The "PO" command stands for "Pin Output". It allows you to set
+the output value (if it is currently set to be an output) on just one
+pin at a time. (High or Low)<br>
+  </li>
+  <li><span style="font-weight: bold;">Format: </span>"PO,&lt;Port&gt;,&lt;Pin&gt;,&lt;Value&gt;&lt;CR&gt;"</li>
+  <li><span style="font-weight: bold;">&lt;Port&gt;:</span> This is the
+character A, B, C, D, E, F or G depending upon which port you want to
+set.<br>
+  </li>
+  <li><span style="font-weight: bold;">&lt;Pin&gt;:</span> This is a
+number between and including 0 to 31. It indicates which pin in the
+port
+for which you want to set the state.<br>
+  </li>
+  <li><span style="font-weight: bold;">&lt;Value&gt;:</span> This is
+either "0" or "1", for Low (0) or High (1).<br>
+  </li>
+  <li><span style="font-weight: bold;">Example:</span> "PD,A,3,0" -
+This would make Port A
+pin 3 low.<br>
+  </li>
+  <li><span style="font-weight: bold;">Return Packet:</span>
+"OK"</li>
+</ul>
+<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp; The "CU" Command</span><span style="font-weight: bold;"></span>
+<ul>
+  <li>The "CU" command stands for "Configure UBW32". It is designed to
+be
+a generic command for setting things that affect the general operation
+of the UBW32.<br>
+  </li>
+  <li><span style="font-weight: bold;">Format: </span>"CU,&lt;Parameter&gt;,&lt;Value&gt;&lt;CR&gt;"</li>
+  <li><span style="font-weight: bold;">&lt;Parameter&gt;:</span> This
+is an unsigned 8 bit value, representing the parameter number you wish
+to change. (See table below)<br>
+  </li>
+  <li><span style="font-weight: bold;">&lt;Value&gt;:</span> This is a
+value who's meaning depends upon the &lt;Parameter&gt; number chosen.<br>
+  </li>
+  <li><span style="font-weight: bold;">Example:</span> "CU,1,0" - This
+would turn off
+the sending of the "OK" packets after each command.<br>
+  </li>
+  <li><span style="font-weight: bold;">Return Packet:</span>
+"OK"</li>
+</ul>
+<table style="text-align: left; width: 80%; margin-left: auto; margin-right: auto;" cellspacing="2" cellpadding="2" border="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      <div style="text-align: center;">&lt;Parameter&gt;<br>
+      </div>
+      </td>
+      <td style="vertical-align: top; text-align: center;">&lt;Value&gt;<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;">&lt;Value&gt;
+meaning<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;">1<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;">0 or 1<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;">0 = Turn off
+"OK" packets<br>
+1 = Turn on "OK" packets (default)<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div style="text-align: left;"> <br>
+</div>
+<span style="font-weight: bold;"></span><span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;
+The
+"BL"
+Command</span> : Enter Boot Loader mode<span style="font-weight: bold;"></span>
+<ul>
+  <li>The "BL" command stands for "Boot Loader". When you issue a BL
+command, the UBW32 will reset itself into bootloader mode and wait for
+a download from the HID Bootloader application.<br>
+  </li>
+  <li><span style="font-weight: bold;">Format: </span>"BL&lt;CR&gt;"</li>
+  <li><span style="font-weight: bold;">Example:</span> "BL"<br>
+  </li>
+  <li><span style="font-weight: bold;">Return Packet:</span> none<span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><br>
+  </li>
+</ul>
+<span style="font-weight: bold;"></span><span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;
+The
+"T1"
+Command&nbsp;</span> : Execute Test 1<span style="font-weight: bold;"></span>
+<ul>
+  <li>The "T1" command stands for "Run Test 1". It set all pins to be
+digital outputs, and set them all high. It will then pull each one
+down, in turn, for the length of time specified. It will start with
+A15, and progress clockwise around the UBW to D8, then cycle back
+around to A15. It will repeat this the number of times specified. The
+purpose of this command is to test all 78 I/Os, and show that they are
+all connected properly to the CPU, and that there are no opens or
+shorts. If you put an LED through a resistor to +3.3V on each I/O pin,
+you'll end up with a nice Knight Rider effect.<br>
+  </li>
+  <li><span style="font-weight: bold;">Format: </span>"T1,&lt;duration&gt;,&lt;iterations&gt;&lt;CR&gt;"</li>
+  <li><span style="font-weight: bold;">&lt;Duration&gt;:</span> This is
+an unsigned 16 bit integer, and represents the time, in milliseconds,
+that each I/O will be pulled low<br>
+  </li>
+  <li><span style="font-weight: bold;">&lt;Iterations&gt;:</span> This
+is an unsigned 16 bit integer, and represents the number of times to
+repeat the pattern<br>
+  </li>
+  <li><span style="font-weight: bold;">Example:</span> "T1,200,4" -
+This would run the pattern four times, with each pin going low for
+200ms.<br>
+  </li>
+  <li><span style="font-weight: bold;">Return Packet:</span>
+"OK"<span style="font-weight: bold;"></span></li>
+</ul>
+<span style="font-weight: bold;">The
+"T2"
+Command&nbsp;</span> : Execute Test 12
+<ul>
+  <li>This command assumes a proper test jig, where certain pins are
+shorted together (Contact Schmalz Haus for details if you need to use
+this command). It checks for opens and shorts on as many pins as can be
+tested. For example, RD8 and RD10, RD9 and RD11, and so on around the
+UBW32's pins<br>
+    <br>
+Procedure:<br>
+1) Set every other pair of pins to be inputs, every other pair to be
+outputs. <br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Example: RD8 = Out, RD9 = Out, RD10 =
+In, RD11 = In, etc. <br>
+2) Set all outputs low<br>
+3) Set RD8 high, and check that RD10 is high.<br>
+4) Set RD8 low, and check that RD10 is low.<br>
+5) Repeat steps 3 and 4 for each pair of connected pins<br>
+6) Wait for up to 30 seconds for the user to push both PRG and USER
+buttons<br>
+7) Output a response - either "PASS", or "FAIL - "&lt;some error&gt; <br>
+  </li>
+  <li><span style="font-weight: bold;">Format: </span>"T2&lt;CR&gt;"</li>
+  <li><span style="font-weight: bold;">Example:</span> "T2"<br>
+  </li>
+  <li><span style="font-weight: bold;">Return Packet:</span>
+"OK"</li>
+</ul>
+<br>
+<span style="font-weight: bold;">Errors Messages: <br>
+</span>&nbsp;&nbsp; <br>
+There are two ways that one might communicate with a UBW32:<br>
+<ol>
+  <li>By typing commands into a terminal emulator on a computer, to
+'test out' commands and how the system is working.</li>
+  <li>By writing a computer program that will automatically generate
+commands to send to a UBW32.</li>
+</ol>
+The long error messages are very useful for debugging the system, and
+especially when using the UBW32 by hand from a terminal emulator. The
+long messages are not as useful when running under scenario 2) above,
+as the PC application has a much harder time parsing the long error
+messages.<br>
+<br>
+To help make the error messages useful in both scenarios, each error
+message starts out with an exclamation mark "!" and then is immediately
+followed by an integer error number, then a space, and then the long
+text of the error message with a &lt;CR&gt;&lt;LF&gt; at the end. This
+means that if your PC application wants to parse the error message, it
+can look in the data coming back from the UBW32 for the exclamation
+mark
+"!" and then read in the error number and ignore everything else until
+the next &lt;CR&gt;&lt;LF&gt;.<br>
+<br>
+Error Message List:<br>
+<ul>
+  <li>"!0" (unused)</li>
+  <li>"!1" (unused)</li>
+  <li>"!2 Err: TX Buffer overrun"</li>
+  <ul>
+    <li>This error is generated if, for some reason, the internal code
+of the UBW32 tries to send too much back to the PC at once, and the
+internal transmit buffer back to the PC overflows.<br>
+    </li>
+  </ul>
+  <li>"!3 Err: RX Buffer overrun"</li>
+  <ul>
+    <li>This error is generated if, while the UBW32 is receiving data
+from the PC, the internal receive buffer is overfilled.<br>
+    </li>
+  </ul>
+  <li>"!4 Err: Missing parameter(s)"</li>
+  <ul>
+    <li>The UBW32 will send back this error if it expected to find
+another parameter in the command, but instead found a &lt;CR&gt; or
+&lt;LF&gt;.<br>
+    </li>
+  </ul>
+  <li>"!5 Err: Need comma next, found: '&lt;some_char&gt;'"</li>
+  <ul>
+    <li>The UBW32 will send back this error if it expected to find a
+comma, but found something else instead. The &lt;some_char&gt; will be
+the character it found instead of the comma.<br>
+    </li>
+  </ul>
+  <li>"!6 Err: Invalid parameter value"</li>
+  <ul>
+    <li>This error means that the UBW32 found a parameter, but its
+value
+was outside of the acceptable range for that particular parameter.<br>
+    </li>
+  </ul>
+  <li>"!7 Err: Extra parameter"</li>
+  <ul>
+    <li>This error indicates that the UBW32 expected to see a
+&lt;CR&gt;
+or &lt;LF&gt; command terminator, but instead found an extra comma or
+extra parameter.</li>
+  </ul>
+  <li>"!8 Err: Unknown command '&lt;command_chars&gt;'"</li>
+  <ul>
+    <li>This error indicates that the single or double byte command
+name was not understood or doesn't exist. &lt;command_chars&gt; will be
+the one or two bytes that the UBW32 received that did not match any
+know
+commands.<br>
+    </li>
+  </ul>
+</ul>
+<span style="font-weight: bold;">Version 1.4 Files:</span><br>
+&nbsp;&nbsp;&nbsp; ZIP file of all project and source files necessary
+to build 1.4 <a href="http://www.schmalzhaus.com/UBW32/FW/UBW32_v1_4/UBW32_v1_4.zip">here</a>.<br>
+&nbsp;
+&nbsp; v1.4 HEX
+<a href="http://www.schmalzhaus.com/UBW32/FW/UBW32_v1_4/D32.hex">here</a> (for
+programming a
+UBW32)<br>
+&nbsp;&nbsp;&nbsp; Browse the v1.4 build files <a href="http://www.schmalzhaus.com/UBW32/FW/UBW32_v1_4">here</a><br>
+<br>
+<br>
+<br>
+<div style="text-align: center;"><a href="http://www.schmalzhaus.com/UBW32">Questions? E-mail me at <img style="width: 177px; height: 22px;" alt="my e-mail address" src="UBW32%20Firmware%20v1.4%20Documentation_files/email.png" align="top"><br>
+<br>
+</a>
+<div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/"><img alt="Creative Commons License" style="border-width: 0pt;" src="UBW32%20Firmware%20v1.4%20Documentation_files/88x31.png"></a><br>
+<span xmlns:dc="http://purl.org/dc/elements/1.1/" property="dc:title">UBW32
+USB
+Bit
+Whacker</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.schmalzhaus.com/UBW32" property="cc:attributionName" rel="cc:attributionURL">Brian Schmalz</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative
+Commons
+Attribution
+3.0
+United
+States
+License</a>.<br>
+Based on a work at <a xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://www.schmalzhaus.com/UBW32" rel="dc:source">www.schmalzhaus.com/UBW32</a>.<br>
+Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.schmalzhaus.com/UBW32" rel="cc:morePermissions">www.schmalzhaus.com/UBW32</a>.
+<br>
+</div>
+</div>
+<script async="" src="UBW32%20Firmware%20v1.4%20Documentation_files/analytics.js"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11764490-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+</body></html>
