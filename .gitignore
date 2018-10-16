@@ -1,6 +1,31 @@
 
 # Created by https://www.gitignore.io/api/c,vim,c++,macos,linux,eagle,kicad,clion,python,pycharm,windows,webstorm,phpstorm,notepadpp,clion+iml,clion+all,jetbrains,virtualenv,pycharm+iml,pycharm+all,sublimetext,webstorm+all,phpstorm+all,phpstorm+iml,webstorm+iml,visualstudio,jetbrains+all,jetbrains+iml
 
+### MicrosoftOffice ###
+*.tmp
+#
+## Word temporary
+~$*.doc*
+#
+## Word Auto Backup File
+#Backup of *.doc*
+#
+## Excel temporary
+~$*.xls*
+#
+## Excel Backup File
+*.xlk
+#
+## PowerPoint temporary
+~$*.ppt*
+#
+## Visio autosave temporary files
+*.~vsd*
+#
+#
+## End of https://www.gitignore.io/api/microsoftoffice
+#
+
 ### C ###
 # Prerequisites
 *.d
