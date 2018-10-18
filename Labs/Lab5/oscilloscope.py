@@ -49,6 +49,10 @@ while True:
 startTime = time.time()
 elapsedTime = 0.0
 
+# used to determine frequency - determines when peak voltage is hit
+above900 = False
+hasHit = False
+
 # The Oscilloscope will run for 5 seconds
 while elapsedTime <= 0.1:
     # read from channel 0
@@ -62,10 +66,6 @@ while elapsedTime <= 0.1:
     print("Coordinates: \t%d, %f" % (coordinate[0], coordinate[1]))
     voltCoordinates.append(coordinate)
 
-    # Boolean flags used to determine if the peak voltage has been hit
-    above900 = False
-    hasHit = False
-    
     # to calculate our freqemcy, get timestamp of every pos clk edge
     # and store all time stamps in a list. From there, find the average
     # times between each time stamp in the list. This is the average period
