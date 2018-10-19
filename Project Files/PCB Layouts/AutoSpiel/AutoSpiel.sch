@@ -2123,11 +2123,29 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
 <part name="VDD2" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
 <part name="Q1" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="TIP120" device="" package3d_urn="urn:adsk.eagle:package:29488/1"/>
-<part name="SOLF2" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
+<part name="SOLF1" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
 <part name="RLED1" library="SparkFun-Resistors" deviceset="10KOHM" device="-HORIZ_KIT-1/4W-5%" value="10k"/>
 <part name="D1" library="SparkFun-LED" deviceset="LED" device="3MM"/>
-<part name="J2" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
+<part name="GNDSOL1" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
 <part name="RSOL1" library="SparkFun-Resistors" deviceset="10KOHM" device="-HORIZ_KIT-1/4W-5%" value="10k"/>
+<part name="Q2" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="TIP120" device="" package3d_urn="urn:adsk.eagle:package:29488/1"/>
+<part name="SOLF2" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
+<part name="RLED2" library="SparkFun-Resistors" deviceset="10KOHM" device="-HORIZ_KIT-1/4W-5%" value="10k"/>
+<part name="D2" library="SparkFun-LED" deviceset="LED" device="3MM"/>
+<part name="GNDSOL2" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
+<part name="RSOL2" library="SparkFun-Resistors" deviceset="10KOHM" device="-HORIZ_KIT-1/4W-5%" value="10k"/>
+<part name="Q3" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="TIP120" device="" package3d_urn="urn:adsk.eagle:package:29488/1"/>
+<part name="SOLF3" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
+<part name="RLED3" library="SparkFun-Resistors" deviceset="10KOHM" device="-HORIZ_KIT-1/4W-5%" value="10k"/>
+<part name="D3" library="SparkFun-LED" deviceset="LED" device="3MM"/>
+<part name="GNDSOL3" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
+<part name="RSOL3" library="SparkFun-Resistors" deviceset="10KOHM" device="-HORIZ_KIT-1/4W-5%" value="10k"/>
+<part name="Q4" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="TIP120" device="" package3d_urn="urn:adsk.eagle:package:29488/1"/>
+<part name="SOLF4" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
+<part name="RLED4" library="SparkFun-Resistors" deviceset="10KOHM" device="-HORIZ_KIT-1/4W-5%" value="10k"/>
+<part name="D4" library="SparkFun-LED" deviceset="LED" device="3MM"/>
+<part name="GNDSOL4" library="SparkFun-Connectors" deviceset="CONN_01" device=""/>
+<part name="RSOL4" library="SparkFun-Resistors" deviceset="10KOHM" device="-HORIZ_KIT-1/4W-5%" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -2154,7 +2172,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <attribute name="NAME" x="58.42" y="96.52" size="1.778" layer="95"/>
 <attribute name="VALUE" x="58.42" y="93.98" size="1.778" layer="96"/>
 </instance>
-<instance part="SOLF2" gate="G$1" x="55.88" y="50.8" rot="R90">
+<instance part="SOLF1" gate="G$1" x="55.88" y="50.8" rot="R90">
 <attribute name="VALUE" x="60.706" y="48.26" size="1.778" layer="96" font="vector" rot="R90"/>
 <attribute name="NAME" x="52.832" y="48.26" size="1.778" layer="95" font="vector" rot="R90"/>
 </instance>
@@ -2166,13 +2184,85 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <attribute name="NAME" x="80.391" y="61.468" size="1.778" layer="95" font="vector" rot="R90"/>
 <attribute name="VALUE" x="85.725" y="61.468" size="1.778" layer="96" font="vector" rot="R90" align="top-left"/>
 </instance>
-<instance part="J2" gate="G$1" x="66.04" y="50.8" rot="R90">
+<instance part="GNDSOL1" gate="G$1" x="66.04" y="50.8" rot="R90">
 <attribute name="VALUE" x="70.866" y="48.26" size="1.778" layer="96" font="vector" rot="R90"/>
 <attribute name="NAME" x="62.992" y="48.26" size="1.778" layer="95" font="vector" rot="R90"/>
 </instance>
 <instance part="RSOL1" gate="G$1" x="55.88" y="76.2" rot="R90">
 <attribute name="NAME" x="54.356" y="76.2" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="57.404" y="76.2" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+</instance>
+<instance part="Q2" gate="1" x="99.06" y="93.98">
+<attribute name="NAME" x="104.14" y="96.52" size="1.778" layer="95"/>
+<attribute name="VALUE" x="104.14" y="93.98" size="1.778" layer="96"/>
+</instance>
+<instance part="SOLF2" gate="G$1" x="101.6" y="50.8" rot="R90">
+<attribute name="VALUE" x="106.426" y="48.26" size="1.778" layer="96" font="vector" rot="R90"/>
+<attribute name="NAME" x="98.552" y="48.26" size="1.778" layer="95" font="vector" rot="R90"/>
+</instance>
+<instance part="RLED2" gate="G$1" x="129.54" y="76.2" rot="R90">
+<attribute name="NAME" x="128.016" y="76.2" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="131.064" y="76.2" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+</instance>
+<instance part="D2" gate="D1" x="129.54" y="66.04">
+<attribute name="NAME" x="126.111" y="61.468" size="1.778" layer="95" font="vector" rot="R90"/>
+<attribute name="VALUE" x="131.445" y="61.468" size="1.778" layer="96" font="vector" rot="R90" align="top-left"/>
+</instance>
+<instance part="GNDSOL2" gate="G$1" x="111.76" y="50.8" rot="R90">
+<attribute name="VALUE" x="116.586" y="48.26" size="1.778" layer="96" font="vector" rot="R90"/>
+<attribute name="NAME" x="108.712" y="48.26" size="1.778" layer="95" font="vector" rot="R90"/>
+</instance>
+<instance part="RSOL2" gate="G$1" x="101.6" y="76.2" rot="R90">
+<attribute name="NAME" x="100.076" y="76.2" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="103.124" y="76.2" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+</instance>
+<instance part="Q3" gate="1" x="144.78" y="93.98">
+<attribute name="NAME" x="149.86" y="96.52" size="1.778" layer="95"/>
+<attribute name="VALUE" x="149.86" y="93.98" size="1.778" layer="96"/>
+</instance>
+<instance part="SOLF3" gate="G$1" x="147.32" y="50.8" rot="R90">
+<attribute name="VALUE" x="152.146" y="48.26" size="1.778" layer="96" font="vector" rot="R90"/>
+<attribute name="NAME" x="144.272" y="48.26" size="1.778" layer="95" font="vector" rot="R90"/>
+</instance>
+<instance part="RLED3" gate="G$1" x="175.26" y="76.2" rot="R90">
+<attribute name="NAME" x="173.736" y="76.2" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="176.784" y="76.2" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+</instance>
+<instance part="D3" gate="D1" x="175.26" y="66.04">
+<attribute name="NAME" x="171.831" y="61.468" size="1.778" layer="95" font="vector" rot="R90"/>
+<attribute name="VALUE" x="177.165" y="61.468" size="1.778" layer="96" font="vector" rot="R90" align="top-left"/>
+</instance>
+<instance part="GNDSOL3" gate="G$1" x="157.48" y="50.8" rot="R90">
+<attribute name="VALUE" x="162.306" y="48.26" size="1.778" layer="96" font="vector" rot="R90"/>
+<attribute name="NAME" x="154.432" y="48.26" size="1.778" layer="95" font="vector" rot="R90"/>
+</instance>
+<instance part="RSOL3" gate="G$1" x="147.32" y="76.2" rot="R90">
+<attribute name="NAME" x="145.796" y="76.2" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="148.844" y="76.2" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+</instance>
+<instance part="Q4" gate="1" x="190.5" y="93.98">
+<attribute name="NAME" x="195.58" y="96.52" size="1.778" layer="95"/>
+<attribute name="VALUE" x="195.58" y="93.98" size="1.778" layer="96"/>
+</instance>
+<instance part="SOLF4" gate="G$1" x="193.04" y="50.8" rot="R90">
+<attribute name="VALUE" x="197.866" y="48.26" size="1.778" layer="96" font="vector" rot="R90"/>
+<attribute name="NAME" x="189.992" y="48.26" size="1.778" layer="95" font="vector" rot="R90"/>
+</instance>
+<instance part="RLED4" gate="G$1" x="220.98" y="76.2" rot="R90">
+<attribute name="NAME" x="219.456" y="76.2" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="222.504" y="76.2" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+</instance>
+<instance part="D4" gate="D1" x="220.98" y="66.04">
+<attribute name="NAME" x="217.551" y="61.468" size="1.778" layer="95" font="vector" rot="R90"/>
+<attribute name="VALUE" x="222.885" y="61.468" size="1.778" layer="96" font="vector" rot="R90" align="top-left"/>
+</instance>
+<instance part="GNDSOL4" gate="G$1" x="203.2" y="50.8" rot="R90">
+<attribute name="VALUE" x="208.026" y="48.26" size="1.778" layer="96" font="vector" rot="R90"/>
+<attribute name="NAME" x="200.152" y="48.26" size="1.778" layer="95" font="vector" rot="R90"/>
+</instance>
+<instance part="RSOL4" gate="G$1" x="193.04" y="76.2" rot="R90">
+<attribute name="NAME" x="191.516" y="76.2" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="194.564" y="76.2" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
 </instances>
 <busses>
@@ -2197,9 +2287,39 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="83.82" y="55.88" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="1"/>
+<pinref part="GNDSOL1" gate="G$1" pin="1"/>
 <wire x1="66.04" y1="58.42" x2="66.04" y2="68.58" width="0.1524" layer="91"/>
 <label x="66.04" y="60.96" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="D2" gate="D1" pin="C"/>
+<wire x1="129.54" y1="60.96" x2="129.54" y2="53.34" width="0.1524" layer="91"/>
+<label x="129.54" y="55.88" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="GNDSOL2" gate="G$1" pin="1"/>
+<wire x1="111.76" y1="58.42" x2="111.76" y2="68.58" width="0.1524" layer="91"/>
+<label x="111.76" y="60.96" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="D3" gate="D1" pin="C"/>
+<wire x1="175.26" y1="60.96" x2="175.26" y2="53.34" width="0.1524" layer="91"/>
+<label x="175.26" y="55.88" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="GNDSOL3" gate="G$1" pin="1"/>
+<wire x1="157.48" y1="58.42" x2="157.48" y2="68.58" width="0.1524" layer="91"/>
+<label x="157.48" y="60.96" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="D4" gate="D1" pin="C"/>
+<wire x1="220.98" y1="60.96" x2="220.98" y2="53.34" width="0.1524" layer="91"/>
+<label x="220.98" y="55.88" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="GNDSOL4" gate="G$1" pin="1"/>
+<wire x1="203.2" y1="58.42" x2="203.2" y2="68.58" width="0.1524" layer="91"/>
+<label x="203.2" y="60.96" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VDD2" class="0">
@@ -2212,6 +2332,21 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="Q1" gate="1" pin="C"/>
 <wire x1="55.88" y1="99.06" x2="55.88" y2="109.22" width="0.1524" layer="91"/>
 <label x="58.42" y="104.14" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="Q2" gate="1" pin="C"/>
+<wire x1="101.6" y1="99.06" x2="101.6" y2="109.22" width="0.1524" layer="91"/>
+<label x="104.14" y="104.14" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="Q3" gate="1" pin="C"/>
+<wire x1="147.32" y1="99.06" x2="147.32" y2="109.22" width="0.1524" layer="91"/>
+<label x="149.86" y="104.14" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="Q4" gate="1" pin="C"/>
+<wire x1="193.04" y1="99.06" x2="193.04" y2="109.22" width="0.1524" layer="91"/>
+<label x="195.58" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="F2" class="0">
@@ -2232,6 +2367,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="5.08" y1="91.44" x2="15.24" y2="91.44" width="0.1524" layer="91"/>
 <label x="10.16" y="91.44" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="Q2" gate="1" pin="B"/>
+<wire x1="96.52" y1="93.98" x2="83.82" y2="93.98" width="0.1524" layer="91"/>
+<label x="86.36" y="93.98" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="G2" class="0">
 <segment>
@@ -2239,12 +2379,22 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="5.08" y1="88.9" x2="15.24" y2="88.9" width="0.1524" layer="91"/>
 <label x="10.16" y="88.9" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="Q3" gate="1" pin="B"/>
+<wire x1="142.24" y1="93.98" x2="129.54" y2="93.98" width="0.1524" layer="91"/>
+<label x="132.08" y="93.98" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="G#2" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="37"/>
 <wire x1="5.08" y1="86.36" x2="15.24" y2="86.36" width="0.1524" layer="91"/>
 <label x="10.16" y="86.36" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="Q4" gate="1" pin="B"/>
+<wire x1="187.96" y1="93.98" x2="175.26" y2="93.98" width="0.1524" layer="91"/>
+<label x="177.8" y="93.98" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A2" class="0">
@@ -2479,7 +2629,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <net name="N$37" class="0">
 <segment>
 <wire x1="55.88" y1="71.12" x2="55.88" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="SOLF2" gate="G$1" pin="1"/>
+<pinref part="SOLF1" gate="G$1" pin="1"/>
 <pinref part="RSOL1" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -2488,6 +2638,84 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="RLED1" gate="G$1" pin="1"/>
 <pinref part="D1" gate="D1" pin="A"/>
 <wire x1="83.82" y1="71.12" x2="83.82" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="Q2" gate="1" pin="E"/>
+<wire x1="101.6" y1="81.28" x2="101.6" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="RLED2" gate="G$1" pin="2"/>
+<wire x1="101.6" y1="83.82" x2="101.6" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="81.28" x2="129.54" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="83.82" x2="101.6" y2="83.82" width="0.1524" layer="91"/>
+<junction x="101.6" y="83.82"/>
+<pinref part="RSOL2" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<wire x1="101.6" y1="71.12" x2="101.6" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="SOLF2" gate="G$1" pin="1"/>
+<pinref part="RSOL2" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="RLED2" gate="G$1" pin="1"/>
+<pinref part="D2" gate="D1" pin="A"/>
+<wire x1="129.54" y1="71.12" x2="129.54" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="Q3" gate="1" pin="E"/>
+<wire x1="147.32" y1="81.28" x2="147.32" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="RLED3" gate="G$1" pin="2"/>
+<wire x1="147.32" y1="83.82" x2="147.32" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="81.28" x2="175.26" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="83.82" x2="147.32" y2="83.82" width="0.1524" layer="91"/>
+<junction x="147.32" y="83.82"/>
+<pinref part="RSOL3" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<wire x1="147.32" y1="71.12" x2="147.32" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="SOLF3" gate="G$1" pin="1"/>
+<pinref part="RSOL3" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="RLED3" gate="G$1" pin="1"/>
+<pinref part="D3" gate="D1" pin="A"/>
+<wire x1="175.26" y1="71.12" x2="175.26" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="Q4" gate="1" pin="E"/>
+<wire x1="193.04" y1="81.28" x2="193.04" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="RLED4" gate="G$1" pin="2"/>
+<wire x1="193.04" y1="83.82" x2="193.04" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="81.28" x2="220.98" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="83.82" x2="193.04" y2="83.82" width="0.1524" layer="91"/>
+<junction x="193.04" y="83.82"/>
+<pinref part="RSOL4" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<wire x1="193.04" y1="71.12" x2="193.04" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="SOLF4" gate="G$1" pin="1"/>
+<pinref part="RSOL4" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="RLED4" gate="G$1" pin="1"/>
+<pinref part="D4" gate="D1" pin="A"/>
+<wire x1="220.98" y1="71.12" x2="220.98" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
