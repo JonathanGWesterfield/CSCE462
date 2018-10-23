@@ -1,0 +1,250 @@
+{
+  "header": {
+    "PPQ": 192,
+    "bpm": 100,
+    "timeSignature": [
+      2,
+      4
+    ],
+    "name": "Good Friday 1"
+  },
+  "startTime": 0,
+  "duration": 18.9,
+  "tracks": [
+    {
+      "startTime": 0,
+      "duration": 0,
+      "length": 0,
+      "notes": [],
+      "controlChanges": {},
+      "id": 0,
+      "name": "Good Friday 1"
+    },
+    {
+      "startTime": 0,
+      "duration": 18.9,
+      "length": 28,
+      "notes": [
+        {
+          "name": "F#5",
+          "midi": 78,
+          "time": 0,
+          "velocity": 0.8661417322834646,
+          "duration": 1.05
+        },
+        {
+          "name": "E5",
+          "midi": 76,
+          "time": 1.2,
+          "velocity": 0.8661417322834646,
+          "duration": 0.4437500000000001
+        },
+        {
+          "name": "F#5",
+          "midi": 78,
+          "time": 1.6500000000000001,
+          "velocity": 0.8661417322834646,
+          "duration": 0.29374999999999996
+        },
+        {
+          "name": "G#5",
+          "midi": 80,
+          "time": 1.9500000000000002,
+          "velocity": 0.8661417322834646,
+          "duration": 0.4437500000000001
+        },
+        {
+          "name": "E5",
+          "midi": 76,
+          "time": 2.4000000000000004,
+          "velocity": 0.8661417322834646,
+          "duration": 0.2937500000000002
+        },
+        {
+          "name": "G#5",
+          "midi": 80,
+          "time": 2.7000000000000006,
+          "velocity": 0.8661417322834646,
+          "duration": 1.0500000000000003
+        },
+        {
+          "name": "F#5",
+          "midi": 78,
+          "time": 3.900000000000001,
+          "velocity": 0.8661417322834646,
+          "duration": 1.0500000000000003
+        },
+        {
+          "name": "B5",
+          "midi": 83,
+          "time": 5.100000000000001,
+          "velocity": 0.8661417322834646,
+          "duration": 0.5
+        },
+        {
+          "name": "F#5",
+          "midi": 78,
+          "time": 5.700000000000001,
+          "velocity": 0.8661417322834646,
+          "duration": 0.44374999999999964
+        },
+        {
+          "name": "E5",
+          "midi": 76,
+          "time": 6.15,
+          "velocity": 0.8661417322834646,
+          "duration": 0.2937500000000002
+        },
+        {
+          "name": "D#5",
+          "midi": 75,
+          "time": 6.45,
+          "velocity": 0.8661417322834646,
+          "duration": 0.5
+        },
+        {
+          "name": "E5",
+          "midi": 76,
+          "time": 7.05,
+          "velocity": 0.8661417322834646,
+          "duration": 0.44374999999999964
+        },
+        {
+          "name": "F#5",
+          "midi": 78,
+          "time": 7.499999999999999,
+          "velocity": 0.8661417322834646,
+          "duration": 0.2937500000000002
+        },
+        {
+          "name": "C#5",
+          "midi": 73,
+          "time": 7.799999999999999,
+          "velocity": 0.8661417322834646,
+          "duration": 1.6500000000000004
+        },
+        {
+          "name": "G#5",
+          "midi": 80,
+          "time": 9.6,
+          "velocity": 0.8661417322834646,
+          "duration": 0.5
+        },
+        {
+          "name": "F#5",
+          "midi": 78,
+          "time": 10.2,
+          "velocity": 0.8661417322834646,
+          "duration": 1.0999999999999996
+        },
+        {
+          "name": "E5",
+          "midi": 76,
+          "time": 11.399999999999999,
+          "velocity": 0.8661417322834646,
+          "duration": 0.44374999999999964
+        },
+        {
+          "name": "F#5",
+          "midi": 78,
+          "time": 11.849999999999998,
+          "velocity": 0.8661417322834646,
+          "duration": 0.2937499999999993
+        },
+        {
+          "name": "G#5",
+          "midi": 80,
+          "time": 12.149999999999997,
+          "velocity": 0.8661417322834646,
+          "duration": 0.44374999999999964
+        },
+        {
+          "name": "E5",
+          "midi": 76,
+          "time": 12.599999999999996,
+          "velocity": 0.8661417322834646,
+          "duration": 0.2937499999999993
+        },
+        {
+          "name": "G#5",
+          "midi": 80,
+          "time": 12.899999999999995,
+          "velocity": 0.8661417322834646,
+          "duration": 0.9000000000000004
+        },
+        {
+          "name": "F#5",
+          "midi": 78,
+          "time": 13.799999999999995,
+          "velocity": 0.8661417322834646,
+          "duration": 0.8000000000000007
+        },
+        {
+          "name": "F#5",
+          "midi": 78,
+          "time": 14.699999999999996,
+          "velocity": 0.8661417322834646,
+          "duration": 0.5
+        },
+        {
+          "name": "E5",
+          "midi": 76,
+          "time": 15.299999999999995,
+          "velocity": 0.8661417322834646,
+          "duration": 0.44374999999999964
+        },
+        {
+          "name": "F#5",
+          "midi": 78,
+          "time": 15.749999999999995,
+          "velocity": 0.8661417322834646,
+          "duration": 0.29375000000000107
+        },
+        {
+          "name": "G#5",
+          "midi": 80,
+          "time": 16.049999999999997,
+          "velocity": 0.8661417322834646,
+          "duration": 0.5
+        },
+        {
+          "name": "F#5",
+          "midi": 78,
+          "time": 16.65,
+          "velocity": 0.8661417322834646,
+          "duration": 0.5
+        },
+        {
+          "name": "B4",
+          "midi": 71,
+          "time": 17.25,
+          "velocity": 0.8661417322834646,
+          "duration": 1.6499999999999986
+        }
+      ],
+      "controlChanges": {
+        "7": [
+          {
+            "number": 7,
+            "time": 0,
+            "value": 1
+          }
+        ],
+        "10": [
+          {
+            "number": 10,
+            "time": 0,
+            "value": 0.5039370078740157
+          }
+        ]
+      },
+      "id": 1,
+      "name": "Staff",
+      "instrumentNumber": 9,
+      "instrument": "glockenspiel",
+      "instrumentFamily": "chromatic percussion",
+      "channelNumber": 0,
+      "isPercussion": false
+    }
+  ]
+}
