@@ -1,0 +1,6 @@
+Here is a website that has hundreds of code examples for the PIC32 code. 
+WARNING: There is a chance I misunderstood the processor these examples are
+	for. Hopefully they will still be somewhat helpful even if they
+	are for a different processor.
+
+https://www.microchip.com/doclisting/CodeExamplesByFunc.aspx
