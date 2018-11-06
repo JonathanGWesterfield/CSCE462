@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2018-11-06T19:44:22Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.2.0"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.57,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "AutoSpiel v1.2a"
+        },
+        "Owner": "Jonathan Westerfield <jgwesterfield@gmail.com>",
+        "Size": {
+            "X": 270.49,
+            "Y": 94.92
+        }
+    }
+}
