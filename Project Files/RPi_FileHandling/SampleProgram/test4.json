@@ -1,0 +1,160 @@
+{
+  "header": {
+    "PPQ": 192,
+    "bpm": 100,
+    "timeSignature": [
+      2,
+      4
+    ],
+    "name": "TEST4"
+  },
+  "startTime": 0,
+  "duration": 18.9,
+  "tracks": [
+    {
+      "startTime": 0,
+      "duration": 0,
+      "length": 0,
+      "notes": [],
+      "controlChanges": {},
+      "id": 0,
+      "name": "TEST4"
+    },
+    {
+      "startTime": 0,
+      "duration": 18.9,
+      "length": 28,
+      "notes": [
+        {
+          "name": "F4",
+          "midi": 78,
+          "time": 1.2,
+          "velocity": 0.8661417322834646,
+          "duration": 1.05
+        },
+        {
+          "name": "E5",
+          "midi": 76,
+          "time": 1.2,
+          "velocity": 0.8661417322834646,
+          "duration": 0.4437500000000001
+        },
+        {
+          "name": "F3",
+          "midi": 78,
+          "time": 1.2,
+          "velocity": 0.8661417322834646,
+          "duration": 0.29374999999999996
+        },
+        {
+          "name": "G3",
+          "midi": 80,
+          "time": 1.9500000000000002,
+          "velocity": 0.8661417322834646,
+          "duration": 0.4437500000000001
+        },
+        {
+          "name": "E4",
+          "midi": 76,
+          "time": 2.4000000000000004,
+          "velocity": 0.8661417322834646,
+          "duration": 0.2937500000000002
+        },
+        {
+          "name": "G2",
+          "midi": 80,
+          "time": 2.7000000000000006,
+          "velocity": 0.8661417322834646,
+          "duration": 1.0500000000000003
+        },
+        {
+          "name": "F3",
+          "midi": 78,
+          "time": 2.7000000000000006,
+          "velocity": 0.8661417322834646,
+          "duration": 1.0500000000000003
+        },
+        {
+          "name": "B2",
+          "midi": 83,
+          "time": 5.100000000000001,
+          "velocity": 0.8661417322834646,
+          "duration": 0.5
+        },
+        {
+          "name": "F4",
+          "midi": 78,
+          "time": 5.700000000000001,
+          "velocity": 0.8661417322834646,
+          "duration": 0.44374999999999964
+        },
+        {
+          "name": "E3",
+          "midi": 76,
+          "time": 6.15,
+          "velocity": 0.8661417322834646,
+          "duration": 0.2937500000000002
+        },
+        {
+          "name": "C4",
+          "midi": 75,
+          "time": 6.45,
+          "velocity": 0.8661417322834646,
+          "duration": 0.5
+        },
+        {
+          "name": "B4",
+          "midi": 76,
+          "time": 7.05,
+          "velocity": 0.8661417322834646,
+          "duration": 0.44374999999999964
+        },
+        {
+          "name": "G2",
+          "midi": 78,
+          "time": 7.499999999999999,
+          "velocity": 0.8661417322834646,
+          "duration": 0.2937500000000002
+        },
+        {
+          "name": "C3",
+          "midi": 73,
+          "time": 7.799999999999999,
+          "velocity": 0.8661417322834646,
+          "duration": 1.6500000000000004
+        },
+
+        {
+          "name": "B4",
+          "midi": 71,
+          "time": 7.799999999999999,
+          "velocity": 0.8661417322834646,
+          "duration": 1.6499999999999986
+        }
+      ],
+      "controlChanges": {
+        "7": [
+          {
+            "number": 7,
+            "time": 0,
+            "value": 1
+          }
+        ],
+        "10": [
+          {
+            "number": 10,
+            "time": 0,
+            "value": 0.5039370078740157
+          }
+        ]
+      },
+      "id": 1,
+      "name": "Staff",
+      "instrumentNumber": 9,
+      "instrument": "glockenspiel",
+      "instrumentFamily": "chromatic percussion",
+      "channelNumber": 0,
+      "isPercussion": false
+    }
+  ]
+}
