@@ -1,0 +1,105 @@
+{
+  "header": {
+    "PPQ": 96,
+    "bpm": 120,
+    "timeSignature": [
+      4,
+      4
+    ],
+    "name": "Welcome"
+  },
+  "startTime": 0,
+  "duration": 2.9947916666666665,
+  "tracks": [
+    {
+      "startTime": 0,
+      "duration": 0,
+      "length": 0,
+      "notes": [],
+      "controlChanges": {},
+      "id": 0
+    },
+    {
+      "startTime": 0,
+      "duration": 2.9947916666666665,
+      "length": 10,
+      "notes": [
+        {
+          "name": "F2",
+          "midi": 41,
+          "time": 0,
+          "velocity": 0.6299212598425197,
+          "duration": 0.9947916666666666
+        },
+        {
+          "name": "D#4",
+          "midi": 63,
+          "time": 0,
+          "velocity": 0.6299212598425197,
+          "duration": 0.328125
+        },
+        {
+          "name": "D#3",
+          "midi": 51,
+          "time": 0.3333333333333333,
+          "velocity": 0.6299212598425197,
+          "duration": 0.16145833333333331
+        },
+        {
+          "name": "A#3",
+          "midi": 58,
+          "time": 0.49999999999999994,
+          "velocity": 0.6299212598425197,
+          "duration": 0.4947916666666667
+        },
+        {
+          "name": "G#2",
+          "midi": 44,
+          "time": 1,
+          "velocity": 0.6299212598425197,
+          "duration": 0.9947916666666667
+        },
+        {
+          "name": "G#3",
+          "midi": 56,
+          "time": 1,
+          "velocity": 0.6299212598425197,
+          "duration": 0.6614583333333335
+        },
+        {
+          "name": "D#4",
+          "midi": 63,
+          "time": 1.6666666666666667,
+          "velocity": 0.6299212598425197,
+          "duration": 0.328125
+        },
+        {
+          "name": "A#2",
+          "midi": 46,
+          "time": 2,
+          "velocity": 0.6299212598425197,
+          "duration": 0.9947916666666665
+        },
+        {
+          "name": "D#3",
+          "midi": 51,
+          "time": 2,
+          "velocity": 0.6299212598425197,
+          "duration": 0.9947916666666665
+        },
+        {
+          "name": "A#3",
+          "midi": 58,
+          "time": 2,
+          "velocity": 0.6299212598425197,
+          "duration": 0.9947916666666665
+        }
+      ],
+      "controlChanges": {},
+      "id": 1,
+      "name": "FL Keys 1",
+      "channelNumber": 0,
+      "isPercussion": false
+    }
+  ]
+}
